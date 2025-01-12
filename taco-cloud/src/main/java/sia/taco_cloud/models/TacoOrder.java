@@ -1,4 +1,4 @@
-package sia.taco_cloud;
+package sia.taco_cloud.models;
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;

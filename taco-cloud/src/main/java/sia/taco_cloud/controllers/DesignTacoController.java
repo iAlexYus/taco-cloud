@@ -1,13 +1,15 @@
 package sia.taco_cloud.controllers;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import sia.taco_cloud.Ingredient;
-import sia.taco_cloud.Ingredient.Type;
-import sia.taco_cloud.Taco;
-import sia.taco_cloud.TacoOrder;
+import sia.taco_cloud.models.Ingredient;
+import sia.taco_cloud.models.Ingredient.Type;
+import sia.taco_cloud.models.Taco;
+import sia.taco_cloud.models.TacoOrder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -57,7 +59,14 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+    public String processTaco(
+            @Valid Taco taco,
+            Errors errors,
+            @ModelAttribute TacoOrder tacoOrder) {
+        if (errors.hasErrors()) {
+            return "design";
+        }
+
         tacoOrder.addTaco(taco);
         log.info("Processing taco: {}", taco);
 
