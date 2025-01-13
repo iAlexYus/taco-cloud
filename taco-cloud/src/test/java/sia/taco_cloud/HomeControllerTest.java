@@ -12,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 import sia.taco_cloud.controllers.HomeController;
 
-@WebMvcTest(HomeController.class)
+//@WebMvcTest(HomeController.class)
 public class HomeControllerTest {
     @Autowired
     private MockMvc mockMvc;
