@@ -13,9 +13,7 @@ public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
     //когда есть глагол(find, get и т.д.) и слово By
     List<TacoOrder> findByDeliveryZip(String deliveryZip);
 
-    @Query("""
-            Select o from Order o where o.deliveryCity='Seattle'
-            """
-    )
-    List<TacoOrder> readOrderDeliveredInSeattle();
+    @Query(value = "Select o from Taco_Order o where o.deliveryCity='Seattle'",
+            nativeQuery = true)
+    List<TacoOrder> readOrdersDeliveredInSeattle();
 }
