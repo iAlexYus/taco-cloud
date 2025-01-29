@@ -1,6 +1,14 @@
 spring:
   application:
     name: taco-cloud
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          facebook:
+#            clientId: <facebook cli Id>
+#            clientSecret: <facebook cli Sec>
+#            scope: email, public_profile
   thymeleaf:
     cache: false
   datasource:

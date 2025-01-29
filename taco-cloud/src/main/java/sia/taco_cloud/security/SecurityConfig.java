@@ -54,7 +54,12 @@ public class SecurityConfig {
                 .formLogin()
                 .loginPage("/login")
                 //можно указывать разные настройки поведения
+//                .oauth2Login() //подключение oauth2 конфигурации
+//                    .loginPage("/login") //традиц. способ авторизации
                 .defaultSuccessUrl("/design")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
                 .and()
                 .build();
     }
