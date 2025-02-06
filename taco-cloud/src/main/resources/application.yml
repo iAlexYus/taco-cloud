@@ -12,5 +12,33 @@ spring:
   thymeleaf:
     cache: false
   datasource:
+#    url: jdbc:mysql://localhost/tacocloud
+#    username: tacouser
+#    password: tacopassword
     generate-unique-name: false
     name: tacocloud
+    schema:
+      - order-schema.sql
+      - ingredient-schema.sql
+      - taco-schema.sql
+      - user-schema.sql
+    data:
+      - ingredients.sql
+  server:
+    port: 8443
+    ssl:
+      key-store: file:///path/to/mykeys.jks
+      key-store-password: letmein
+      key-password: letmein
+logging:
+  file:
+    path: /var/logs/
+    file: TacoCloud.log
+  level:
+    root: WARN
+    org.springframework.security: DEBUG
+greeting:
+  welcome: You are using ${spring.application.name}
+taco:
+  order:
+    pageSize: 10
