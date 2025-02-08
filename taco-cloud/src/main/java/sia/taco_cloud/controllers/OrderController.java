@@ -17,21 +17,27 @@ import org.springframework.web.bind.support.SessionStatus;
 import sia.taco_cloud.data.OrderRepository;
 import sia.taco_cloud.models.TacoOrder;
 import sia.taco_cloud.models.User;
+import sia.taco_cloud.service.OrderProps;
 
 @Slf4j
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
-@ConfigurationProperties(prefix = "taco.orders")
+//@ConfigurationProperties(prefix = "taco.orders")
 public class OrderController {
 
-    private int pageSize = 20;
+//    private int pageSize = 20
+//    public void setPageSize(int pageSize) {
+//        this.pageSize = pageSize;
+//    }
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
+    private OrderProps props;
     private OrderRepository orderRepo;
+
+    public OrderController(OrderRepository orderRepo, OrderProps props) {
+        this.orderRepo = orderRepo;
+        this.props = props;
+    }
 
     public OrderController(OrderRepository orderRepo) {
         this.orderRepo = orderRepo;
@@ -44,7 +50,7 @@ public class OrderController {
 
     @GetMapping
     public String ordersForUser( @AuthenticationPrincipal User user, Model model) {
-        Pageable pageable = PageRequest.of(0,pageSize);
+        Pageable pageable = PageRequest.of(0,props.getPageSize());
         model.addAttribute("orders", orderRepo.findByUserOrderByPlacedAtDesc(user, pageable));
         return "orderList";
     }
