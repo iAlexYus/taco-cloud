@@ -30,15 +30,15 @@ spring:
       key-store: file:///path/to/mykeys.jks
       key-store-password: letmein
       key-password: letmein
-logging:
-  file:
-    path: /var/logs/
-    file: TacoCloud.log
-  level:
-    root: WARN
-    org.springframework.security: DEBUG
-greeting:
-  welcome: You are using ${spring.application.name}
-taco:
-  order:
-    pageSize: 10
+  logging:
+    file:
+      path: /var/logs/
+      file: TacoCloud.log
+    level:
+      root: WARN
+      org.springframework.security: DEBUG
+  greeting:
+    welcome: You are using ${spring.application.name}
+  taco:
+    order:
+      pageSize: 10

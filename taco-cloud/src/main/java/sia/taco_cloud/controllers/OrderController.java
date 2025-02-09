@@ -39,10 +39,6 @@ public class OrderController {
         this.props = props;
     }
 
-    public OrderController(OrderRepository orderRepo) {
-        this.orderRepo = orderRepo;
-    }
-
     @GetMapping("/current")
     public String orderForm() {
         return "orderForm";
