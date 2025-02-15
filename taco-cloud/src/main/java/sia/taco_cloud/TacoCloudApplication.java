@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import sia.taco_cloud.data.IngredientRepository;
 import sia.taco_cloud.models.Ingredient;
 import sia.taco_cloud.models.Ingredient.Type;
@@ -17,6 +18,8 @@ public class TacoCloudApplication {
 	}
 
 	@Bean
+//	@Profile({"dev", "qa"})
+	@Profile("!prod") //может быть применён к люому классу отмеченному @Configuration
 	//дополнительная обработка перед запуском Spring-приложения
 	//но после загрузки контейнера Spring
 	//метод CommandLineRunner получает строку со всеми параметрами командной строки

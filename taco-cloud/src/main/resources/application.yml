@@ -42,3 +42,16 @@ spring:
   taco:
     order:
       pageSize: 10
+
+#--- разделяет профили с различными конфигурациями
+#spring:
+#  profiles: prod
+#
+#  datasource:
+#    url: jdbc:mysql://localhost/tacocloud
+#    username: tacouser
+#    password: tacopassword
+#
+#logging:
+#  level:
+#    tacos: WARN
