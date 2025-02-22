@@ -17,13 +17,13 @@ spring:
 #    password: tacopassword
     generate-unique-name: false
     name: tacocloud
-    schema:
-      - order-schema.sql
-      - ingredient-schema.sql
-      - taco-schema.sql
-      - user-schema.sql
-    data:
-      - ingredients.sql
+#    schema:
+#      - order-schema.sql
+#      - ingredient-schema.sql
+#      - taco-schema.sql
+#      - user-schema.sql
+#    data:
+#      - ingredients.sql
   server:
     port: 8443
     ssl:

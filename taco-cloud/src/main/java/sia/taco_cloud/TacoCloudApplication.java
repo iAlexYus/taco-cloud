@@ -17,26 +17,26 @@ public class TacoCloudApplication {
 		SpringApplication.run(TacoCloudApplication.class, args);
 	}
 
-	@Bean
+//	@Bean
 //	@Profile({"dev", "qa"})
-	@Profile("!prod") //может быть применён к люому классу отмеченному @Configuration
+//	@Profile("!prod") //может быть применён к люому классу отмеченному @Configuration
 	//дополнительная обработка перед запуском Spring-приложения
 	//но после загрузки контейнера Spring
 	//метод CommandLineRunner получает строку со всеми параметрами командной строки
-	public CommandLineRunner dataLoader(IngredientRepository repo) {
-		return args -> {
-			repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
-			repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
-			repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
-			repo.save(new Ingredient("CARN", "Carnitas", Type.PROTEIN));
-			repo.save(new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES));
-			repo.save(new Ingredient("LETC", "Lettuce", Type.VEGGIES));
-			repo.save(new Ingredient("CHED", "Cheddar", Type.CHEESE));
-			repo.save(new Ingredient("JACK", "Monterrey Jack", Type.CHEESE));
-			repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
-			repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
-		};
-	}
+//	public CommandLineRunner dataLoader(IngredientRepository repo) {
+//		return args -> {
+//			repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
+//			repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
+//			repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
+//			repo.save(new Ingredient("CARN", "Carnitas", Type.PROTEIN));
+//			repo.save(new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES));
+//			repo.save(new Ingredient("LETC", "Lettuce", Type.VEGGIES));
+//			repo.save(new Ingredient("CHED", "Cheddar", Type.CHEESE));
+//			repo.save(new Ingredient("JACK", "Monterrey Jack", Type.CHEESE));
+//			repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
+//			repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
+//		};
+//	}
 
 	//ApplicationRunner получает на вход параметр ApplicationArguments
 	//предлагающий методы для доступа к отдельным аргументам из командной строки
