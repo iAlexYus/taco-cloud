@@ -12,7 +12,7 @@ import sia.taco_cloud.models.User;
 
 import java.util.List;
 
-public interface TacoRepository extends CrudRepository<Taco, String> {
+public interface TacoRepository extends CrudRepository<Taco, Long> {
 
     Iterable<Taco> findAll();
 //    Page<Taco> findAll(PageRequest pageable);
