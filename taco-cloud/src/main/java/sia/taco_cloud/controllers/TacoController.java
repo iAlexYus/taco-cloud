@@ -71,9 +71,9 @@ public class TacoController {
         if (patch.getCcExpiration() != null) {
             order.setCcExpiration(patch.getCcExpiration());
         }
-        if (patch.getCcCVV() != null) {
-            order.setCcCVV(patch.getCcCVV());
-        }
+//        if (patch.getCcCVV() != null) {
+//            order.setCcCVV(patch.getCcCVV());
+//        }
         return orderRepo.save(order);
     }
 }
