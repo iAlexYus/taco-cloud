@@ -1,5 +1,6 @@
 package sia.taco_cloud.controllers;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -71,9 +72,17 @@ public class TacoController {
         if (patch.getCcExpiration() != null) {
             order.setCcExpiration(patch.getCcExpiration());
         }
-//        if (patch.getCcCVV() != null) {
-//            order.setCcCVV(patch.getCcCVV());
-//        }
+        if (patch.getCcCVV() != null) {
+            order.setCcCVV(patch.getCcCVV());
+        }
         return orderRepo.save(order);
+    }
+
+    @DeleteMapping("/{orderId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOrder(@PathVariable("orderId") Long orderId) {
+        try {
+            orderRepo.deleteById(orderId);
+        } catch (EmptyResultDataAccessException e) {}
     }
 }
