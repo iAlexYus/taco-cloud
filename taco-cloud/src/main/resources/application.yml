@@ -24,6 +24,9 @@ spring:
 #      - user-schema.sql
 #    data:
 #      - ingredients.sql
+  data:
+    rest:
+      base-path: /data-api
   server:
     port: 8443
     ssl:

@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 @Data
 //@Table
 @Entity
+@RestResource(rel = "tacos", path = "tacos")
 public class Taco {
 
     @Id
